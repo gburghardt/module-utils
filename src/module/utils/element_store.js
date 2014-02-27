@@ -1,8 +1,8 @@
 Module.Utils.ElementStore = {
 
-	includes: {
+	includes: [
 		ElementStore.Utils
-	},
+	],
 
 	included: function(Klass) {
 		Klass.addCallback("beforeReady", "_initElementStore");
