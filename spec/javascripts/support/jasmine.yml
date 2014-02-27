@@ -14,10 +14,12 @@ src_files:
   - bower_components/inherit.js/lib/function.js
   - bower_components/callbacks/src/callbacks.js
   - bower_components/callbacks/src/callbacks/utils.js
+  - bower_components/dom_event_delegator/lib/dom/events/delegator.js
   - bower_components/module-base/src/module/base.js
   - src/module/utils.js
   - src/module/utils/property_cache.js
   - src/module/utils/bootstrap.js
+  - src/module/utils/delegator.js
 
 # stylesheets
 #

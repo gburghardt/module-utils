@@ -29,6 +29,8 @@ Module.Utils.Bootstrap = {
 			this.callbacks.execute("beforeReady");
 			this._ready();
 			this.callbacks.execute("afterReady");
+
+			return this;
 		},
 
 		destructor: function destructor(keepElement) {
