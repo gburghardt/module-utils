@@ -34,3 +34,5 @@ Module.Utils.Delegator = {
 	}
 
 };
+
+Module.Utils.include(Module.Utils.Delegator);

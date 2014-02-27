@@ -1,7 +1,6 @@
 Module.Utils.Bootstrap = {
 	includes: [
-		Callbacks.Utils,
-		Module.Utils.PropertyCache
+		Callbacks.Utils
 	],
 
 	included: function included(Klass) {
@@ -45,3 +44,5 @@ Module.Utils.Bootstrap = {
 	}
 
 };
+
+Module.Utils.include(Module.Utils.Bootstrap);

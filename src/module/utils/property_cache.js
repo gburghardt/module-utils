@@ -66,3 +66,5 @@ Module.Utils.PropertyCache = {
 	}
 
 };
+
+Module.Utils.include(Module.Utils.PropertyCache);
