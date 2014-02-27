@@ -1,0 +1,21 @@
+{
+	"name": "module-base-utils",
+	"description": "",
+	"authors": [
+		"Greg Burghardt <greg_burghardt@yahoo.com>"
+	],
+	"version": "1.0.0",
+	"license": "MIT",
+	"repository": { "type": "git", "url": "https://github.com/gburghardt/module-base-utils.git" },
+	"main": [
+	],
+	"dependencies": {
+		"inherit.js": "1.0.0",
+		"dom_event_delegator": "1.1.1",
+		"callbacks": "1.0.0",
+		"module-base": "file:///c/Users/BurghardtG/code/git/module-base/.git#master"
+	},
+	"devDependencies": {
+		"jasmine": "~2.0"
+	}
+}
