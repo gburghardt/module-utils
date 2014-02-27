@@ -1,5 +1,9 @@
 Module.Utils.ElementStore = {
 
+	includes: {
+		ElementStore.Utils
+	},
+
 	included: function(Klass) {
 		Klass.addCallback("beforeReady", "_initElementStore");
 		Klass.addCallback("destroy", "destroyElementStore");
