@@ -9,6 +9,7 @@ describe("Module.Utils.Delegator", function() {
 		ParentKlass = function() {};
 		ParentKlass.prototype.destructor = function() {};
 		ParentKlass.prototype.init = function() {};
+		ParentKlass.prototype.setOptions = function(value) { this.options = value; };
 		ParentKlass.include(Module.Utils.PropertyCache);
 		ParentKlass.include(Module.Utils.Bootstrap);
 		ParentKlass.include(Module.Utils.Delegator);

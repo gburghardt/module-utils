@@ -23,7 +23,7 @@ Module.Utils.Bootstrap = {
 	prototype: {
 
 		init: function init(elementOrId, options) {
-			this.options = this.constructor.fromCache("options");
+			this.setOptions(this.constructor.fromCache("options"));
 			this._originalInit.call(this, elementOrId, options);
 			this.initCallbacks(this.constructor.fromCache("callbacks"));
 			this.callbacks.execute("beforeReady");
