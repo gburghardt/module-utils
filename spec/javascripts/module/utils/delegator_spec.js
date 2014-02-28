@@ -40,11 +40,13 @@ describe("Module.Utils.Delegator", function() {
 		Klass.prototype.actions = {
 			submit: [ "save" ]
 		};
+		Klass.prototype.options = {
+			actionPrefix: "foo"
+		};
 
 		var o = new Klass()
 
 		o.delegator = delegator;
-		o.options.actionPrefix = "foo";
 		o.init();
 
 		expect(delegator.setEventActionMapping).toHaveBeenCalledWith({

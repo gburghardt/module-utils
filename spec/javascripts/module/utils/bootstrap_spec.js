@@ -102,4 +102,28 @@ describe("Module.Utils.Bootstrap", function() {
 		expect(callbacks.destructor).toHaveBeenCalled();
 	});
 
+	it("merges the 'options' property from the prototype chain", function() {
+		ParentKlass.prototype.options = {
+			foo: [ "a" ]
+		};
+		ChildKlass.prototype.options = {
+			foo: [ "a", "b" ]
+		};
+		Klass.prototype.options = {
+			bar: [ "c" ],
+			message: "Foo?"
+		};
+
+		var o = new Klass();
+
+		o.init();
+		expect(o.options).toEqual({
+			foo: ["a", "b"],
+			bar: ["c"],
+			message: "Foo?"
+		});
+
+		expect(o.callbacks.types).toBe(Klass.fromCache("callbacks"));
+	});
+
 });
