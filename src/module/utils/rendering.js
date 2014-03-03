@@ -2,7 +2,7 @@ Module.Utils.Rendering = {
 
 	included: function(Klass) {
 		Klass.addCallback("destroy", "_destroyRenderingEngine");
-	}
+	},
 
 	prototype: {
 
