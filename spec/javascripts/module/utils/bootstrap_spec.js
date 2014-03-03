@@ -5,7 +5,10 @@ describe("Module.Utils.Bootstrap", function() {
 	    Klass;
 
 	beforeEach(function() {
-		ParentKlass = function() {};
+		ParentKlass = function() { this.initialize(); };
+		ParentKlass.prototype.initialize = function initialize() {
+			this.options = this.constructor.fromCache("options");
+		};
 		ParentKlass.prototype.destructor = function() {};
 		ParentKlass.prototype.init = function() {};
 		ParentKlass.prototype.setOptions = function(value) { this.options = value; };
@@ -116,15 +119,13 @@ describe("Module.Utils.Bootstrap", function() {
 		};
 
 		var o = new Klass();
-
 		o.init();
+
 		expect(o.options).toEqual({
 			foo: ["a", "b"],
 			bar: ["c"],
 			message: "Foo?"
 		});
-
-		expect(o.callbacks.types).toBe(Klass.fromCache("callbacks"));
 	});
 
 });

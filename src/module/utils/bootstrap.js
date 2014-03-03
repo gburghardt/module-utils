@@ -3,9 +3,14 @@ Module.Utils.Bootstrap = {
 		Callbacks.Utils
 	],
 
-	included: function included(Klass) {
+	included: function(Klass) {
 		// Forcefully override methods
 		var proto = Klass.prototype;
+
+		if (proto.initialize !== Module.Utils.Bootstrap.prototype.initialize) {
+			proto._originalInitialize = proto.initialize || function emptyInitialize() {};
+			proto.initialize = Module.Utils.Bootstrap.prototype.initialize;
+		}
 
 		if (proto.init !== Module.Utils.Bootstrap.prototype.init) {
 			proto._originalInit = proto.init || function emptyInit() {};
@@ -22,24 +27,30 @@ Module.Utils.Bootstrap = {
 
 	prototype: {
 
-		init: function init(elementOrId, options) {
+		initialize: function() {
+			this._originalInitialize.call(this);
 			this.setOptions(this.constructor.fromCache("options"));
+		},
+
+		init: function(elementOrId, options) {
 			this._originalInit.call(this, elementOrId, options);
 			this.initCallbacks(this.constructor.fromCache("callbacks"));
 			this.callbacks.execute("beforeReady");
 			this._ready();
 			this.callbacks.execute("afterReady");
 
+			opts = null;
+
 			return this;
 		},
 
-		destructor: function destructor(keepElement) {
+		destructor: function(keepElement) {
 			this.callbacks.execute("destroy", keepElement);
 			this.destroyCallbacks();
 			this._originalDestructor.call(this, keepElement);
 		},
 
-		_ready: function _ready() {
+		_ready: function() {
 		}
 
 	}

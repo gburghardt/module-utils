@@ -10,7 +10,7 @@
 	"main": [
 	],
 	"dependencies": {
-		"inherit.js": "1.0.0",
+		"inherit.js": "file:///c/Users/BurghardtG/code/git/inherit.js/.git#master",
 		"beacon": "1.0.0",
 		"dom_event_delegator": "1.1.1",
 		"element_store": "1.0.2",

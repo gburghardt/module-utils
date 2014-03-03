@@ -6,10 +6,19 @@ describe("Module.Utils.Delegator", function() {
 	    delegator;
 
 	beforeEach(function() {
-		ParentKlass = function() {};
+		ParentKlass = function() { this.initialize(); };
+		ParentKlass.prototype.initialize = function() {
+			this.options = {};
+		};
 		ParentKlass.prototype.destructor = function() {};
 		ParentKlass.prototype.init = function() {};
-		ParentKlass.prototype.setOptions = function(value) { this.options = value; };
+		ParentKlass.prototype.setOptions = function(value) {
+			for (var key in value) {
+				if (value.hasOwnProperty(key)) {
+					this.options[key] = value[key];
+				}
+			}
+		};
 		ParentKlass.include(Module.Utils.PropertyCache);
 		ParentKlass.include(Module.Utils.Bootstrap);
 		ParentKlass.include(Module.Utils.Delegator);
@@ -19,7 +28,7 @@ describe("Module.Utils.Delegator", function() {
 		Klass = ChildKlass.extend({
 			prototype: {
 				initialize: function() {
-					 this.options = {};
+					ChildKlass.prototype.initialize.call(this);
 				}
 			}
 		});
