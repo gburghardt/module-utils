@@ -11,15 +11,24 @@ Module.Utils.Bootstrap = {
 			proto._originalInitialize = proto.initialize || function emptyInitialize() {};
 			proto.initialize = Module.Utils.Bootstrap.prototype.initialize;
 		}
+		else {
+			proto.initialize = function emptyInitialize() {};
+		}
 
 		if (proto.init !== Module.Utils.Bootstrap.prototype.init) {
 			proto._originalInit = proto.init || function emptyInit() {};
 			proto.init = Module.Utils.Bootstrap.prototype.init;
 		}
+		else {
+			proto.init = function emptyInit() {};
+		}
 
 		if (proto.destructor !== Module.Utils.Bootstrap.prototype.destructor) {
 			proto._originalDestructor = proto.destructor || function emptyDestructor() {};
 			proto.destructor = Module.Utils.Bootstrap.prototype.destructor;
+		}
+		else {
+			proto.destructor = function emptyDestructor() {};
 		}
 
 		proto = null;
