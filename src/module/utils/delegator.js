@@ -21,7 +21,7 @@ Module.Utils.Delegator = {
 			}
 
 			this.delegator.init();
-			this.delegator.setEventActionMapping(this.constructor.fromCache("actions"));
+			this.delegator.setEventActionMapping(this.mergeProperty("actions"));
 		},
 
 		_destroyDelegator: function _destroyDelegator(keepElement) {

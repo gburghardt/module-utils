@@ -38,12 +38,12 @@ Module.Utils.Bootstrap = {
 
 		initialize: function() {
 			this._originalInitialize.call(this);
-			this.setOptions(this.constructor.fromCache("options"));
+			this.setOptions(this.mergeProperty("options"));
 		},
 
 		init: function(elementOrId, options) {
 			this._originalInit.call(this, elementOrId, options);
-			this.initCallbacks(this.constructor.fromCache("callbacks"));
+			this.initCallbacks(this.mergeProperty("callbacks"));
 			this.callbacks.execute("beforeReady");
 			this._ready();
 			this.callbacks.execute("afterReady");
