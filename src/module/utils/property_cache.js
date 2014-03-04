@@ -1,9 +1,5 @@
 Module.Utils.PropertyCache = {
 
-	included: function included(Klass) {
-		Klass.cache = {};
-	},
-
 	self: {
 
 		cache: null,
@@ -37,6 +33,8 @@ Module.Utils.PropertyCache = {
 			}
 
 			return function fromCache(key, callback, context) {
+				this.cache = this.cache || {};
+
 				if (this.cache[key]) {
 					return this.cache[key];
 				}
