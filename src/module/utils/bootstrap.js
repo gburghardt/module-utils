@@ -36,6 +36,12 @@ Module.Utils.Bootstrap = {
 
 	prototype: {
 
+		actions: {
+			click: [
+				"cancel"
+			]
+		},
+
 		_isLoading: false,
 
 		initialize: function() {
@@ -66,6 +72,12 @@ Module.Utils.Bootstrap = {
 		},
 
 		_ready: function() {
+		},
+
+		cancel: function(event, element, params) {
+			event.stop();
+			this.destructor();
+			event = element = params = null;
 		}
 
 	}
