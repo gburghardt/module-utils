@@ -42,8 +42,6 @@ Module.Utils.Bootstrap = {
 			]
 		},
 
-		_isLoading: false,
-
 		initialize: function() {
 			this._originalInitialize.call(this);
 			this.setOptions(this.mergeProperty("options"));
