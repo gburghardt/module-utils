@@ -9,7 +9,7 @@ Module.Utils.PropertyCache = {
 			    isArray = function(x) { return toString.call(x) === "[object Array]"; };
 
 			function defaultMerge(destination, source, key, klass) {
-				var name, value, i, length, method;
+				var name, value, i, length;
 
 				for (name in source) {
 					if (source.hasOwnProperty(name)) {
@@ -17,11 +17,10 @@ Module.Utils.PropertyCache = {
 
 						if (isArray(value)) {
 							destination[name] = destination[name] || [];
-							method = destination[name].length === 0 ? "push" : "unshift";
 
 							for (i = 0, length = value.length; i < length; i++) {
 								if (destination[name].indexOf(value[i]) < 0) {
-									destination[name][method](value[i]);
+									destination[name].unshift(value[i]);
 								}
 							}
 						}
@@ -32,7 +31,7 @@ Module.Utils.PropertyCache = {
 				}
 			}
 
-			return function fromCache(key, callback, context) {
+			return function fromCache(key, name, callback, context) {
 				this.cache = this.cache || {};
 
 				if (this.cache[key]) {
@@ -50,8 +49,8 @@ Module.Utils.PropertyCache = {
 				var proto = this.prototype, value = {};
 
 				while (proto) {
-					if (proto.hasOwnProperty(key) && proto[key]) {
-						callback.call(context, value, proto[key], key, this);
+					if (proto.hasOwnProperty(name) && proto[name]) {
+						callback.call(context, value, proto[name], key, this);
 					}
 
 					proto = proto.__proto__;
@@ -65,9 +64,9 @@ Module.Utils.PropertyCache = {
 
 	prototype: {
 
-		mergeProperty: function mergeProperty(key, callback, context) {
-			key = this.guid ? this.guid + "." + key : key;
-			return this.constructor.fromCache(key, callback, context);
+		mergeProperty: function mergeProperty(name, callback, context) {
+			var key = this.guid ? this.guid + "." + name : name;
+			return this.constructor.fromCache(key, name, callback, context);
 		}
 
 	}
