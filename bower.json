@@ -13,7 +13,7 @@
 		"inherit.js": "file:///c/Users/BurghardtG/code/git/inherit.js/.git#master",
 		"beacon": "1.0.0",
 		"dom_event_delegator": "1.1.1",
-		"element_store": "1.0.2",
+		"element_store": "file:///c/Users/BurghardtG/code/git/element_store/.git#development",
 		"callbacks": "file:///c/Users/BurghardtG/code/git/callbacks/.git#master",
 		"module-base": "file:///c/Users/BurghardtG/code/git/module-base/.git#master"
 	},
