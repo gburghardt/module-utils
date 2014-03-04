@@ -36,6 +36,8 @@ Module.Utils.Bootstrap = {
 
 	prototype: {
 
+		_isLoading: false,
+
 		initialize: function() {
 			this._originalInitialize.call(this);
 			this.setOptions(this.mergeProperty("options"));
@@ -47,6 +49,10 @@ Module.Utils.Bootstrap = {
 			this.callbacks.execute("beforeReady");
 			this._ready();
 			this.callbacks.execute("afterReady");
+
+			if (!this._isLoading) {
+				this._loaded();
+			}
 
 			opts = null;
 
