@@ -61,6 +61,15 @@ Module.Utils.PropertyCache = {
 			};
 		}()
 
+	},
+
+	prototype: {
+
+		mergeProperty: function mergeProperty(key, callback, context) {
+			key = this.guid ? this.guid + "." + key : key;
+			return this.constructor.fromCache(key, callback, context);
+		}
+
 	}
 
 };
