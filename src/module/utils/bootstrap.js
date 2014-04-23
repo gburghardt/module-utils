@@ -36,12 +36,6 @@ Module.Utils.Bootstrap = {
 
 	prototype: {
 
-		actions: {
-			click: [
-				"cancel"
-			]
-		},
-
 		initialize: function() {
 			this._originalInitialize.call(this);
 			this.setOptions(this.mergeProperty("options"));

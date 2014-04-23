@@ -19,7 +19,6 @@ src_files:
   - src/module/utils.js
   - src/module/utils/property_cache.js
   - src/module/utils/bootstrap.js
-  - src/module/utils/delegator.js
 
 # stylesheets
 #

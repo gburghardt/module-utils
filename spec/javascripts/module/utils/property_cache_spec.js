@@ -31,11 +31,11 @@ describe("Module.Utils.PropertyCache", function() {
 			price: NaN
 		};
 
-		var value = Klass.fromCache("test");
+		var value = Klass.fromCache("test", "test");
 
 		expect(value).toBe(Klass.cache.test);
-		expect(ChildKlass.cache.test).toBe(undefined);
-		expect(ParentKlass.cache.test).toBe(undefined);
+		expect(ChildKlass.cache).toBe(null);
+		expect(ParentKlass.cache).toBe(null);
 		expect(value).toEqual({
 			a: 1,
 			b: 5,
@@ -64,7 +64,7 @@ describe("Module.Utils.PropertyCache", function() {
 			price: [NaN]
 		};
 
-		var value = Klass.fromCache("test");
+		var value = Klass.fromCache("test", "test");
 
 		expect(value).toEqual({
 			a: [1,9],
@@ -94,7 +94,7 @@ describe("Module.Utils.PropertyCache", function() {
 			price: NaN
 		};
 
-		var value = Klass.fromCache("test");
+		var value = Klass.fromCache("test", "test");
 
 		expect(value).toEqual({
 			a: [1,9],
@@ -114,7 +114,7 @@ describe("Module.Utils.PropertyCache", function() {
 		ChildKlass.prototype.test = { b: 2 };
 		Klass.prototype.test = { c: 3 };
 
-		var value = Klass.fromCache("test", callback),
+		var value = Klass.fromCache("test", "test", callback),
 		    calls = callback.calls.all();
 
 		expect(calls[0].object).toBe(window);
@@ -144,7 +144,7 @@ describe("Module.Utils.PropertyCache", function() {
 		ChildKlass.prototype.test = { b: 2 };
 		Klass.prototype.test = { c: 3 };
 
-		var value = Klass.fromCache("test", callback, context),
+		var value = Klass.fromCache("test", "test", callback, context),
 		    calls = callback.calls.all();
 
 		expect(calls[0].object).toBe(context);
@@ -160,9 +160,9 @@ describe("Module.Utils.PropertyCache", function() {
 		ChildKlass.prototype.test = { b: 2 };
 		Klass.prototype.test = { c: 3 };
 
-		var value = Klass.fromCache("test", callback, context),
+		var value = Klass.fromCache("test", "test", callback, context),
 		    calls = callback.calls.all(),
-		    value2 = Klass.fromCache("test", callback, context);
+		    value2 = Klass.fromCache("test", "test", callback, context);
 
 		expect(calls.length).toBe(3);
 		expect(value).toBe(value2);
@@ -175,8 +175,8 @@ describe("Module.Utils.PropertyCache", function() {
 
 		var callback1 = jasmine.createSpy("fromCacheCallback1"),
 		    callback2 = jasmine.createSpy("fromCacheCallback2"),
-		    value1 = Klass.fromCache("test", callback1),
-		    value2 = ChildKlass.fromCache("test", callback2);
+		    value1 = Klass.fromCache("test", "test", callback1),
+		    value2 = ChildKlass.fromCache("test", "test", callback2);
 
 		expect(callback1).toHaveBeenCalled();
 		expect(callback2).toHaveBeenCalled();

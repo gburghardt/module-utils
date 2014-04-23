@@ -6,15 +6,26 @@ describe("Module.Utils.Bootstrap", function() {
 
 	beforeEach(function() {
 		ParentKlass = function() { this.initialize(); };
-		ParentKlass.prototype.initialize = function initialize() {
-			this.options = this.constructor.fromCache("options");
+		ParentKlass.prototype = {
+			_isLoading: false,
+			options: null,
+			constructor: ParentKlass,
+			initialize: function() {
+				// debugger;
+				// this.options = this.constructor.fromCache("options", "options");
+			},
+			destructor: function() {},
+			init: function() {},
+			setOptions: function(value) { this.options = value; },
+			_loading: function() {},
+			_loaded: function() {}
 		};
-		ParentKlass.prototype.destructor = function() {};
-		ParentKlass.prototype.init = function() {};
-		ParentKlass.prototype.setOptions = function(value) { this.options = value; };
+
 		ParentKlass.include(Module.Utils.PropertyCache);
 		ParentKlass.include(Module.Utils.Bootstrap);
+
 		ChildKlass = ParentKlass.extend();
+
 		Klass = ChildKlass.extend();
 	});
 

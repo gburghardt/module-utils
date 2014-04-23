@@ -16,11 +16,16 @@ Module.Utils.PropertyCache = {
 						value = source[name];
 
 						if (isArray(value)) {
-							destination[name] = destination[name] || [];
+							if (!destination[name]) {
+								destination[name] = value;
+							}
+							else {
+								destination[name] = destination[name] || [];
 
-							for (i = 0, length = value.length; i < length; i++) {
-								if (destination[name].indexOf(value[i]) < 0) {
-									destination[name].unshift(value[i]);
+								for (i = 0, length = value.length; i < length; i++) {
+									if (destination[name].indexOf(value[i]) < 0) {
+										destination[name].unshift(value[i]);
+									}
 								}
 							}
 						}
