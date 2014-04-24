@@ -1,20 +1,26 @@
 {
-	"name": "module-base-utils",
-	"description": "",
+	"name": "module-utils",
+	"description": "The Module Utility Belt",
 	"authors": [
 		"Greg Burghardt <greg_burghardt@yahoo.com>"
 	],
 	"version": "1.0.0",
 	"license": "MIT",
-	"repository": { "type": "git", "url": "https://github.com/gburghardt/module-base-utils.git" },
+	"repository": { "type": "git", "url": "https://github.com/gburghardt/module-utils.git" },
 	"main": [
+		"src/module/utils.js",
+		"src/module/utils/bootstrap.js",
+		"src/module/utils/element_store.js",
+		"src/module/utils/events.js",
+		"src/module/utils/property_cache.js",
+		"src/module/utils/rendering.js"
 	],
 	"dependencies": {
-		"inherit.js": "file:///c/Users/BurghardtG/code/git/inherit.js/.git#master",
-		"beacon": "1.0.0",
-		"element_store": "file:///c/Users/BurghardtG/code/git/element_store/.git#development",
-		"callbacks": "file:///c/Users/BurghardtG/code/git/callbacks/.git#master",
-		"module-base": "file:///c/Users/BurghardtG/code/git/framework/module-base/.git#master"
+		"inherit.js": "~2.0.0",
+		"beacon": "~1.0.0",
+		"element_store": "~1.0.3",
+		"callbacks": "~1.0.1",
+		"module-base": "~1.0.0"
 	},
 	"devDependencies": {
 		"jasmine": "~2.0"
