@@ -20,7 +20,7 @@
 		"beacon": "~1.0.0",
 		"element_store": "~1.0.3",
 		"callbacks": "~1.0.1",
-		"module-base": "~1.0.0"
+		"module-base": "~1.0.1"
 	},
 	"devDependencies": {
 		"jasmine": "~2.0"
