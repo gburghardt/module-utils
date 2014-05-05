@@ -1,0 +1,23 @@
+{
+	"base": [
+		"bower_components/inherit.js/lib/function.js",
+		"bower_components/callbacks/src/callbacks.js",
+		"bower_components/callbacks/src/callbacks/utils.js",
+		"src/module/utils.js",
+		"src/module/utils/bootstrap.js",
+		"src/module/utils/property_cache.js",
+		"src/module/utils/rendering.js"
+	],
+	"element_store": [
+		"bower_components/element_store/lib/element_store.js",
+		"bower_components/element_store/lib/element_store/utils.js",
+		"src/module/utils/element_store.js"
+	],
+	"events": [
+		"bower_components/beacon/src/beacon.js",
+		"bower_components/beacon/src/beacon/dispatcher.js",
+		"bower_components/beacon/src/beacon/application_events.js",
+		"bower_components/beacon/src/beacon/notifications.js",
+		"src/module/utils/events.js"
+	]
+}
