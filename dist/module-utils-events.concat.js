@@ -1,4 +1,4 @@
-/*! module-utils 2014-05-05 */
+/*! module-utils 2014-05-07 */
 (function() {
 
 	function include(Klass, mixin) {
@@ -416,6 +416,10 @@ Module.Utils.Events = {
 	included: function(Klass) {
 		Beacon.setup(Klass);
 		Klass.addCallback("beforeReady", "_initApplicationEvents");
+
+		if (Beacon.Notifications) {
+			Klass.addCallback("beforeReady", "_initNotifications");
+		}
 	}
 };
 

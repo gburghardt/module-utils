@@ -1,4 +1,4 @@
-/*! module-utils 2014-05-05 */
+/*! module-utils 2014-05-07 */
 function ElementStore() {
 }
 ElementStore.prototype = {
