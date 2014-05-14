@@ -52,8 +52,6 @@ Module.Utils.Bootstrap = {
 				this._loaded();
 			}
 
-			opts = null;
-
 			return this;
 		},
 
