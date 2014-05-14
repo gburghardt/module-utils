@@ -1,5 +1,5 @@
-/*! module-utils 2014-05-07 */
-/*! module-utils 2014-05-07 */
+/*! module-utils 2014-05-14 */
+/*! module-utils 2014-05-14 */
 (function(global) {
 
 var toString = global.Object.prototype.toString;
@@ -287,8 +287,6 @@ Module.Utils.Bootstrap = {
 				this._loaded();
 			}
 
-			opts = null;
-
 			return this;
 		},
 
@@ -419,7 +417,7 @@ Module.Utils.Rendering = {
 
 Module.Utils.include(Module.Utils.Rendering);
 
-/*! module-utils 2014-05-07 */
+/*! module-utils 2014-05-14 */
 function ElementStore() {
 }
 ElementStore.prototype = {
@@ -804,7 +802,7 @@ Module.Utils.ElementStore = {
 
 Module.Utils.include(Module.Utils.ElementStore);
 
-/*! module-utils 2014-05-07 */
+/*! module-utils 2014-05-14 */
 (function() {
 
 	function include(Klass, mixin) {

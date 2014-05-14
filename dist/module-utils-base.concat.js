@@ -1,4 +1,4 @@
-/*! module-utils 2014-05-07 */
+/*! module-utils 2014-05-14 */
 (function(global) {
 
 var toString = global.Object.prototype.toString;
@@ -285,8 +285,6 @@ Module.Utils.Bootstrap = {
 			if (!this._isLoading) {
 				this._loaded();
 			}
-
-			opts = null;
 
 			return this;
 		},
